@@ -36,7 +36,7 @@
       "oneClick": false,
       "perMachine": false,
       "allowElevation": true,
-      "installerIcon": "buildResources/icon.ico",
+      "installerIcon": "buildResources/icon.png",
       "uninstallDisplayName": "FS25 Mod Helper by Hackerek_"
     }
   },
