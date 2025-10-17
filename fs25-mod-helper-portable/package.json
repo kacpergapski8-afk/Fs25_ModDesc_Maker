@@ -1,0 +1,54 @@
+{
+  "name": "fs25-mod-helper",
+  "version": "1.0.0",
+  "private": true,
+  "main": "electron/main.js",
+  "author": "Hackerek_",
+  "productName": "FS25 Mod Helper by Hackerek_",
+  "scripts": {
+    "build:ui": "vite build",
+    "build": "npm run build:ui",
+    "dev": "vite",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder --win --x64 --publish never"
+  },
+  "build": {
+    "appId": "com.hackerek.fs25modhelper",
+    "productName": "FS25 Mod Helper by Hackerek_",
+    "directories": {
+      "buildResources": "buildResources",
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "buildResources/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "installerIcon": "buildResources/icon.ico",
+      "uninstallDisplayName": "FS25 Mod Helper by Hackerek_"
+    }
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "electron": "^25.0.0",
+    "electron-builder": "^23.6.0",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
+}

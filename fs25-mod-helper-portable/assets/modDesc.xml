@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc descVersion="63">
+  <title><en>Example Mod</en></title>
+  <description><en>Example</en></description>
+  <author>Hackerek_</author>
+  <version>1.0.0.0</version>
+  <category>tractors</category>
+  <showInStore>true</showInStore>
+</modDesc>
