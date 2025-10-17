@@ -12,27 +12,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Change directory to project
-        working-directory: fs25-mod-helper-portable
-        run: echo "Switched to fs25-mod-helper-portable"
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-        working-directory: fs25-mod-helper-portable
 
       - name: Install dependencies
-        run: npm install
-        working-directory: fs25-mod-helper-portable
+        run: |
+          cd fs25-mod-helper-portable
+          npm install
 
       - name: Build UI
-        run: npm run build
-        working-directory: fs25-mod-helper-portable
+        run: |
+          cd fs25-mod-helper-portable
+          npm run build
 
       - name: Build Windows EXE
-        run: npm run dist
-        working-directory: fs25-mod-helper-portable
+        run: |
+          cd fs25-mod-helper-portable
+          npm run dist
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
