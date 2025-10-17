@@ -1,4 +1,4 @@
-name: Build Windows portable
+name: Build FS25 Mod Helper EXE
 
 on:
   workflow_dispatch:
@@ -9,24 +9,33 @@ jobs:
   build-windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Change directory to project
+        working-directory: fs25-mod-helper-portable
+        run: echo "Switched to fs25-mod-helper-portable"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+        working-directory: fs25-mod-helper-portable
 
       - name: Install dependencies
         run: npm install
+        working-directory: fs25-mod-helper-portable
 
       - name: Build UI
         run: npm run build
+        working-directory: fs25-mod-helper-portable
 
-      - name: Build Windows portable (and installer)
+      - name: Build Windows EXE
         run: npm run dist
+        working-directory: fs25-mod-helper-portable
 
-      - name: Upload artifacts
+      - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows-build
-          path: dist_electron/**/*
+          name: fs25-mod-helper-exe
+          path: fs25-mod-helper-portable/dist_electron/**
